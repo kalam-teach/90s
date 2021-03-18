@@ -10,6 +10,15 @@ var work = /** @class */ (function () {
     }
     work.prototype.WireEvet = function () {
         this.container.find('#submit').on('click', $.proxy(this.Submit, this));
+        this.container.find('#reset').on('click', $.proxy(this.Reset, this));
+    };
+    work.prototype.Reset = function () {
+        var flames = this.container.find("#flames_container").children();
+        for (var i = 0; i < flames.length; i++) {
+            flames[i].style.textDecoration = '';
+        }
+        this.name.val('');
+        this.target.val('');
     };
     work.prototype.Submit = function () {
         var proceed = true;

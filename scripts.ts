@@ -12,7 +12,16 @@ class work {
         this.WireEvet()
     }
     public WireEvet(): void {
-        this.container.find('#submit').on('click', $.proxy(this.Submit, this))
+        this.container.find('#submit').on('click', $.proxy(this.Submit, this));
+        this.container.find('#reset').on('click', $.proxy(this.Reset, this));
+    }
+    private Reset(): void {
+        let flames: JQuery = this.container.find("#flames_container").children();
+        for (let i: number = 0; i < flames.length; i++) {
+            flames[i].style.textDecoration = '';
+        }
+        this.name.val('');
+        this.target.val('');
     }
     private Submit():void {
         let proceed: boolean = true;
