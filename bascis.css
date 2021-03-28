@@ -19,7 +19,25 @@ body {
     flex-direction: column;   
 }
 
-#workArea {
+#headSwitch {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+    #headSwitch select,.holder select {
+        height: 40px;
+        background-image: linear-gradient(to right,pink,aqua);
+        border-radius: 10px;
+        outline: none;
+    }
+.holder select{ 
+    margin-left:10px;
+}
+#workAreaFlames {
+    display:block;
     border-radius: 30px;
     background-color: #193968;
     display: flex;
@@ -31,11 +49,29 @@ body {
     height: 500px;
     width: 40%;
 }
-.alert_border {
-    border-color: red;
+
+#workAreaBMI {
+    border-radius: 30px;
+    background-color: #193968;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 500px;
+    width: 40%;
+    background-image: url(https://images.everydayhealth.com/images/coronavirus/obesity-may-increase-risk-of-covid-19-complications-722x406.jpg?sfvrsn=8dd94b5e_1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+}
+#workAreaCurrency {
+    display: block;
 }
 
-#flames_container {
+.alert_border {
+    border-color: red !important;
+}
+
+#flames_container,#BMI_container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -44,7 +80,17 @@ body {
 #flames_container p{
     font-size: 70px;
     margin:0px;
-
+}
+#BMI_container{
+    margin:0px 10px;
+}
+#BMI_container p {
+    text-align: center;    
+    height: 25px;
+    width: 14%;
+}
+.text-incrementer{
+    width:40% !important;
 }
 .button-group {
     justify-content: space-evenly;
@@ -64,24 +110,29 @@ body {
     justify-content: space-between;
     flex-direction: column;
 }
-    .input-group input {
-        outline:none;
+    .input-group input, .input-group div input {
+        outline: none;
         margin: 10px;
         width: 70%;
         border-radius: 20px;
         height: 40px;
-        padding-left:15px;
-        border-color:transparent transparent aqua transparent;
+        padding-left: 15px;
+        border-color: transparent transparent aqua transparent;
         background-color: transparent;
+        font-size: 25px;
     }
+.input-group .holder{ 
+    width :100% !important;
+}
 
 .position {
     display: flex;
-    align-items: center;    
+    align-items: center;
+    width:100%;
 }
 
 @media only screen and (max-width: 600px) {
-    #workArea {
+    #workAreaFlames {
         width: 70%;
         height:700px;
     }

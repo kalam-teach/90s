@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <script src="scripts.js"></script>
+    <script src="flames.js"></script>
+    <script src="bmi.js"></script>
+    <script src="currency.js"></script>
+    <script src="basicWork.js"></script>
     <script src="Scripts/jquery-3.5.1.js"></script>
     <link href="bascis.css" rel="stylesheet" />
     <title>Flames</title>
@@ -14,21 +17,14 @@
 </head>
 <body>
     <div id="container">
-        <div>
+        <div id="headSwitch">
             <h1>Bird developers</h1>
+            <select name="cars" id="optionSwitch">
+                <option value="Flames">Flames</option>
+                <option value="Bmi">BMI</option>
+                <option value="Currency">Currency Converter</option>               
+            </select>
         </div>
-        <div id="workArea">
-            <div class="input-group position">
-                <input title="Your Name" id="name" placeholder="Your Name" class="com-tit" />
-                <input title="Deserved one" id="target" placeholder="Dream Parterner" class="com-tit" />
-            </div>
-            <div class="button-group position">
-                <button type="button" id="submit"> Check </button>
-                <button type="button" id="reset"> Reset </button>
-            </div>
-            <div id="flames_container">
-            </div>
-        </div>     
     </div>
     
 </body>

@@ -1,19 +1,19 @@
 function init() {
-    new work();
+    new Basicwork();
 }
-var work = /** @class */ (function () {
-    function work() {
+var Basicwork = /** @class */ (function () {
+    function Basicwork() {
         this.container = $(document).find("#container");
         this.name = this.container.find('#name');
         this.target = this.container.find('#target');
         this.renderFlames();
         this.WireEvet();
     }
-    work.prototype.WireEvet = function () {
+    Basicwork.prototype.WireEvet = function () {
         this.container.find('#submit').on('click', $.proxy(this.Submit, this));
         this.container.find('#reset').on('click', $.proxy(this.Reset, this));
     };
-    work.prototype.Reset = function (onlyRender) {
+    Basicwork.prototype.Reset = function (onlyRender) {
         if (onlyRender === void 0) { onlyRender = false; }
         var flames = this.container.find("#flames_container");
         if (flames.children().length < 6) {
@@ -25,7 +25,7 @@ var work = /** @class */ (function () {
             this.target.val('');
         }
     };
-    work.prototype.renderFlames = function () {
+    Basicwork.prototype.renderFlames = function () {
         var _this = this;
         var flames = ["F", "L", "A", "M", "E", "S"];
         flames.forEach(function (letter) {
@@ -34,7 +34,7 @@ var work = /** @class */ (function () {
             _this.container.find("#flames_container").append(pTag);
         });
     };
-    work.prototype.Submit = function () {
+    Basicwork.prototype.Submit = function () {
         var proceed = true;
         if (this.name.val() === "") {
             proceed = false;
@@ -69,11 +69,11 @@ var work = /** @class */ (function () {
             } while (flames.children().length > 1);
         }
     };
-    work.prototype.remove = function (child) {
+    Basicwork.prototype.remove = function (child) {
         var flames = this.container.find("#flames_container");
         flames.children()[child - 1].remove();
     };
-    work.prototype.WordsCount = function (first, second) {
+    Basicwork.prototype.WordsCount = function (first, second) {
         var name = first.replace(/ +/g, '');
         var target = second.replace(/ +/g, '');
         for (var i = 0; i < name.length; i++) {
@@ -86,6 +86,6 @@ var work = /** @class */ (function () {
         }
         return target.length + name.length;
     };
-    return work;
+    return Basicwork;
 }());
 //# sourceMappingURL=scripts.js.map
