@@ -88,8 +88,19 @@ class BasicWork {
             '</div>');
     }
 
-    public static defultCurrency(): JQuery {
-        return $( '<div id="workAreaCurrency">' +
+    public static defultCurrency(): JQuery {      
+        return $('<div id=\"workAreaCurrency\">' +
+            '<div class="input-group position" >' +
+            '<input title="From" id = "from" placeholder = "From" class="com-tit" />' +
+            '<input title="T0" id = "to" placeholder = "T0" class="com-tit" />' +
+            '<input title="Amount" id = "amount" placeholder = "Amount" class="com-tit" />' +
+            '</div>' +
+            '<div class="button-group position" >' +
+            '<button type="button" id = "submit" > Check </button>' +
+            '<button type = "button" id = "reset" > Reset </button>' +
+            '</div>' +
+            '<div id = "currency_container" >' +
+            '</div>' +
             '</div>');
     }
 

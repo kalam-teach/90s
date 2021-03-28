@@ -63,6 +63,21 @@ body {
     background-position: center;
     background-size:cover;
 }
+
+#workAreaCurrency {
+    border-radius: 30px;
+    background-color: #193968;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 500px;
+    width: 40%;
+    background-image: url(http://neptuneholidays.com/world/img/currency-converter.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 #workAreaCurrency {
     display: block;
 }

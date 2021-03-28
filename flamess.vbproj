@@ -310,6 +310,8 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="basicWork.ts" />
+    <TypeScriptCompile Include="bmi.ts" />
+    <TypeScriptCompile Include="currency.ts" />
     <TypeScriptCompile Include="flames.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.d.ts" />

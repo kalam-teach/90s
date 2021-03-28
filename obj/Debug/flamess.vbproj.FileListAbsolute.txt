@@ -1,3 +1,4 @@
 D:\kalam\gti\kalam-tech.github.io\obj\Debug\flamess.vbprojAssemblyReference.cache
 D:\kalam\gti\kalam-tech.github.io\obj\Debug\flamess.Resources.resources
 D:\kalam\gti\kalam-tech.github.io\obj\Debug\flamess.vbproj.GenerateResource.cache
+D:\kalam\gti\kalam-tech.github.io\obj\Debug\flamess.vbproj.CoreCompileInputs.cache
