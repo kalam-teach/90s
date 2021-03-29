@@ -39,7 +39,7 @@
             proceed = false
             this.weight.addClass('alert_border');
         }
-        if (this.container.find("#BMI_container").find('text-incrementer').length > 1) {
+        if (this.container.find("#BMI_container").find('.text-incrementer').length > 1) {
             this.Reset();
         }
         if (proceed) {

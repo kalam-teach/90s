@@ -37,7 +37,7 @@ body {
     margin-left:10px;
 }
 #workAreaFlames {
-    display:block;
+    display: block;
     border-radius: 30px;
     background-color: #193968;
     display: flex;
@@ -46,6 +46,7 @@ body {
     background-image: url(https://images.unsplash.com/photo-1581700261299-b342aa7174cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     height: 500px;
     width: 40%;
 }
