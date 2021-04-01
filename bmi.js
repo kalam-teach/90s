@@ -22,6 +22,7 @@ var BMI = /** @class */ (function () {
         });
     };
     BMI.prototype.Submit = function () {
+        var _this = this;
         var proceed = true;
         var selectors = this.container.find('.holder').find("select");
         var heightInCM = 0.0;
@@ -29,10 +30,12 @@ var BMI = /** @class */ (function () {
         if (this.height.val() === "") {
             proceed = false;
             this.height.addClass('alert_border');
+            setTimeout(function () { BasicWork.removeAlert(_this.height); }, 500);
         }
         if (this.weight.val() === "") {
             proceed = false;
             this.weight.addClass('alert_border');
+            setTimeout(function () { BasicWork.removeAlert(_this.weight); }, 500);
         }
         if (this.container.find("#BMI_container").find('.text-incrementer').length > 1) {
             this.Reset();

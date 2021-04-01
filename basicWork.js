@@ -80,11 +80,17 @@ var BasicWork = /** @class */ (function () {
             '</div>');
     };
     BasicWork.defultCurrency = function () {
-        return $('<div id=\"workAreaCurrency\">' +
-            '<div class="input-group position" >' +
-            '<input title="From" id = "from" placeholder = "From" class="com-tit" />' +
-            '<input title="T0" id = "to" placeholder = "T0" class="com-tit" />' +
-            '<input title="Amount" id = "amount" placeholder = "Amount" class="com-tit" />' +
+        return $('<div id="workAreaCurrency">' +
+            '<div class="input-group position">' +
+            '<div class="position">' +
+            '<select id = "from"></select>' +
+            '</div>' +
+            '<div class="position">' +
+            '<select id = "to"></select>' +
+            '</div>' +
+            '<div>' +
+            '<input title = "Amount" id = "amount" placeholder = "Enter Amount" class="com-tit" />' +
+            '</div>' +
             '</div>' +
             '<div class="button-group position" >' +
             '<button type="button" id = "submit" > Check </button>' +
@@ -102,14 +108,14 @@ var BasicWork = /** @class */ (function () {
             '<option value="cm" > Centimeter </option>' +
             '<option value = "fi" > Feet Inch </option>' +
             '</select>' +
-            '<input title = "Height" id = "height" placeholder = "Height" class="com-tit" />' +
+            '<input title = "Height" id = "height" placeholder = "Height" class="com-tit" "/>' +
             '</div>' +
             '<div class="holder">' +
             '<select>' +
             '<option value="kg" > Kilo  Gram </option>' +
             '<option value = "pd" > Pounds </option>' +
             '</select>' +
-            '<input title = "Weight" id = "weight" placeholder = "Weight" class="com-tit" />' +
+            '<input title = "Weight" id = "weight" placeholder = "Weight" class="com-tit" "/>' +
             '</div>' +
             '</div>' +
             '<div class="button-group position" >' +
@@ -119,6 +125,9 @@ var BasicWork = /** @class */ (function () {
             '<div id = "BMI_container" >' +
             '</div>' +
             '</div>');
+    };
+    BasicWork.removeAlert = function (tag) {
+        tag.removeClass('alert_border');
     };
     BasicWork.getCultures = function () {
         return [
@@ -340,6 +349,143 @@ var BasicWork = /** @class */ (function () {
             { 'Name': 'uz-Cyrl-UZ', 'DisplayName': 'Uzbek (Cyrillic, Uzbekistan)', 'CurrencySymbol': '???', 'CurrencyCode': 'UZS' },
             { 'Name': 'vi-VN', 'DisplayName': 'Vietnamese (Vietnam)', 'CurrencySymbol': '?', 'CurrencyCode': 'VND' },
             { 'Name': 'yo-NG', 'DisplayName': 'Yoruba (Nigeria)', 'CurrencySymbol': '?', 'CurrencyCode': 'NGN' }
+        ];
+    };
+    BasicWork.getCurrencyCulture = function () {
+        return [
+            { 'Name': 'af-ZA', 'DisplayName': 'South Africa', 'CurrencySymbol': 'R', 'CurrencyCode': 'ZAR' },
+            { 'Name': 'sq-AL', 'DisplayName': 'Albania', 'CurrencySymbol': 'Lekë', 'CurrencyCode': 'ALL' },
+            { 'Name': 'gsw-FR', 'DisplayName': 'France', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'eu-ES', 'DisplayName': 'Basque', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'nl-BE', 'DisplayName': 'Belgium', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'nl-NL', 'DisplayName': 'Netherlands', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'en-IE', 'DisplayName': 'Ireland', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'fr-LU', 'DisplayName': 'Luxembourg', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'fr-MC', 'DisplayName': 'Monaco', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'et-EE', 'DisplayName': 'Estonia', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'gl-ES', 'DisplayName': 'Galician', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'de-AT', 'DisplayName': 'Austria', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'lv-LV', 'DisplayName': 'Latvia', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'lt-LT', 'DisplayName': 'Lithuania', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'dsb-DE', 'DisplayName': 'Germany', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'pt-PT', 'DisplayName': 'Portugal', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'it-IT', 'DisplayName': 'Italy', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'mt-MT', 'DisplayName': 'Malta', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'el-GR', 'DisplayName': 'Greece', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'es-ES', 'DisplayName': 'Spain', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'sr-Latn-ME', 'DisplayName': 'Latin, Montenegro', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'sk-SK', 'DisplayName': 'Slovakia', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'sl-SI', 'DisplayName': 'Slovenia', 'CurrencySymbol': '€', 'CurrencyCode': 'EUR' },
+            { 'Name': 'de-CH', 'DisplayName': 'Switzerland', 'CurrencySymbol': 'CHF', 'CurrencyCode': 'CHF' },
+            { 'Name': 'de-LI', 'DisplayName': 'Liechtenstein', 'CurrencySymbol': 'CHF', 'CurrencyCode': 'CHF' },
+            { 'Name': 'ar-AE', 'DisplayName': 'U.A.E.', 'CurrencySymbol': 'د.إ.‏', 'CurrencyCode': 'AED' },
+            { 'Name': 'hy-AM', 'DisplayName': 'Armenia', 'CurrencySymbol': '֏', 'CurrencyCode': 'AMD' },
+            { 'Name': 'am-ET', 'DisplayName': 'Ethiopia', 'CurrencySymbol': 'ብር', 'CurrencyCode': 'AMD' },
+            { 'Name': 'ar-BH', 'DisplayName': 'Bahrain', 'CurrencySymbol': 'د.ب.‏', 'CurrencyCode': 'BHD' },
+            { 'Name': 'ar-DZ', 'DisplayName': 'Algeria', 'CurrencySymbol': 'د.ج.‏', 'CurrencyCode': 'DZD' },
+            { 'Name': 'ar-EG', 'DisplayName': 'Egypt', 'CurrencySymbol': 'ج.م.‏', 'CurrencyCode': 'EGP' },
+            { 'Name': 'ar-IQ', 'DisplayName': 'Iraq', 'CurrencySymbol': 'د.ع.‏', 'CurrencyCode': 'IQD' },
+            { 'Name': 'ar-JO', 'DisplayName': 'Jordan', 'CurrencySymbol': 'د.ا.‏', 'CurrencyCode': 'JOD' },
+            { 'Name': 'ar-KW', 'DisplayName': 'Kuwait', 'CurrencySymbol': 'د.ك.‏', 'CurrencyCode': 'KWD' },
+            { 'Name': 'ar-LB', 'DisplayName': 'Lebanon', 'CurrencySymbol': 'ل.ل.‏', 'CurrencyCode': 'LBP' },
+            { 'Name': 'ar-LY', 'DisplayName': 'Libya', 'CurrencySymbol': 'د.ل.‏', 'CurrencyCode': 'LYD' },
+            { 'Name': 'ar-MA', 'DisplayName': 'Morocco', 'CurrencySymbol': 'د.م.‏', 'CurrencyCode': 'MAD' },
+            { 'Name': 'ar-OM', 'DisplayName': 'Oman', 'CurrencySymbol': 'ر.ع.‏', 'CurrencyCode': 'OMR' },
+            { 'Name': 'ar-QA', 'DisplayName': 'Qatar', 'CurrencySymbol': 'ر.ق.‏', 'CurrencyCode': 'QAR' },
+            { 'Name': 'ar-SA', 'DisplayName': 'Saudi Arabia', 'CurrencySymbol': 'ر.س.‏', 'CurrencyCode': 'SAR' },
+            { 'Name': 'ar-SY', 'DisplayName': 'Arabic (Syria)', 'CurrencySymbol': 'ل.س.‏', 'CurrencyCode': 'SYP' },
+            { 'Name': 'syr-SY', 'DisplayName': 'Syriac (Syria)', 'CurrencySymbol': '?.?.?', 'CurrencyCode': 'SYP' },
+            { 'Name': 'ar-TN', 'DisplayName': 'Tunisia', 'CurrencySymbol': 'د.ت.‏', 'CurrencyCode': 'TND' },
+            { 'Name': 'ar-YE', 'DisplayName': 'Yemen', 'CurrencySymbol': 'ر.ي.‏', 'CurrencyCode': 'YER' },
+            { 'Name': 'as-IN', 'DisplayName': 'India', 'CurrencySymbol': '₹', 'CurrencyCode': 'INR' },
+            { 'Name': 'az-Cyrl-AZ', 'DisplayName': 'Azerbaijan', 'CurrencySymbol': '₼', 'CurrencyCode': 'AZN' },
+            { 'Name': 'bn-BD', 'DisplayName': 'Bangladesh', 'CurrencySymbol': '৳', 'CurrencyCode': 'BDT' },
+            { 'Name': 'ba-RU', 'DisplayName': 'Russia', 'CurrencySymbol': '₽', 'CurrencyCode': 'RUB' },
+            { 'Name': 'be-BY', 'DisplayName': 'Belarus', 'CurrencySymbol': 'Br', 'CurrencyCode': 'BYN' },
+            { 'Name': 'bs-Cyrl-BA', 'DisplayName': 'Bosnia and Herzegovina', 'CurrencySymbol': 'КМ', 'CurrencyCode': 'BAM' },
+            { 'Name': 'sr-Latn-RS', 'DisplayName': 'Serbia', 'CurrencySymbol': 'RSD', 'CurrencyCode': 'RSD' },
+            { 'Name': 'bg-BG', 'DisplayName': 'Bulgaria', 'CurrencySymbol': 'лв.', 'CurrencyCode': 'BGN' },
+            { 'Name': 'zh-TW', 'DisplayName': 'Taiwan', 'CurrencySymbol': 'NT$', 'CurrencyCode': 'TWD' },
+            { 'Name': 'zh-SG', 'DisplayName': 'Singapore', 'CurrencySymbol': '$', 'CurrencyCode': 'SGD' },
+            { 'Name': 'zh-Hans-MO', 'DisplayName': 'Macao SAR', 'CurrencySymbol': 'MOP$', 'CurrencyCode': 'MOP' },
+            { 'Name': 'zh-HK', 'DisplayName': 'Hong Kong S.A.R.', 'CurrencySymbol': 'HK$', 'CurrencyCode': 'HKD' },
+            { 'Name': 'ii-CN', 'DisplayName': 'PRC', 'CurrencySymbol': '¥', 'CurrencyCode': 'CNY' },
+            { 'Name': 'chr-Cher-US', 'DisplayName': 'Cherokee', 'CurrencySymbol': '$', 'CurrencyCode': 'USD' },
+            { 'Name': 'en-US', 'DisplayName': 'United States', 'CurrencySymbol': '$', 'CurrencyCode': 'USD' },
+            { 'Name': 'en-ZW', 'DisplayName': 'Zimbabwe', 'CurrencySymbol': 'US$', 'CurrencyCode': 'USD' },
+            { 'Name': 'quz-EC', 'DisplayName': 'Ecuador', 'CurrencySymbol': '$', 'CurrencyCode': 'USD' },
+            { 'Name': 'es-SV', 'DisplayName': 'El Salvador', 'CurrencySymbol': '$', 'CurrencyCode': 'USD' },
+            { 'Name': 'es-PR', 'DisplayName': 'Puerto Rico', 'CurrencySymbol': '$', 'CurrencyCode': 'USD' },
+            { 'Name': 'hr-HR', 'DisplayName': 'Croatia', 'CurrencySymbol': 'kn', 'CurrencyCode': 'HRK' },
+            { 'Name': 'cs-CZ', 'DisplayName': 'Czech Republic', 'CurrencySymbol': 'Kč', 'CurrencyCode': 'CZK' },
+            { 'Name': 'da-DK', 'DisplayName': 'Denmark', 'CurrencySymbol': 'kr.', 'CurrencyCode': 'DKK' },
+            { 'Name': 'fo-FO', 'DisplayName': 'Faroe Islands', 'CurrencySymbol': 'kr', 'CurrencyCode': 'DKK' },
+            { 'Name': 'kl-GL', 'DisplayName': 'Greenland', 'CurrencySymbol': 'kr.', 'CurrencyCode': 'DKK' },
+            { 'Name': 'ps-AF', 'DisplayName': 'Afghanistan', 'CurrencySymbol': '؋', 'CurrencyCode': 'AFN' },
+            { 'Name': 'dv-MV', 'DisplayName': 'Maldives', 'CurrencySymbol': 'ރ.', 'CurrencyCode': 'MVR' },
+            { 'Name': 'en-029', 'DisplayName': 'Caribbean', 'CurrencySymbol': 'EC$', 'CurrencyCode': 'XCD' },
+            { 'Name': 'en-AU', 'DisplayName': 'Australia', 'CurrencySymbol': '$', 'CurrencyCode': 'AUD' },
+            { 'Name': 'en-BZ', 'DisplayName': 'Belize', 'CurrencySymbol': '$', 'CurrencyCode': 'BZD' },
+            { 'Name': 'en-CA', 'DisplayName': 'Canada', 'CurrencySymbol': '$', 'CurrencyCode': 'CAD' },
+            { 'Name': 'cy-GB', 'DisplayName': 'United Kingdom', 'CurrencySymbol': '£', 'CurrencyCode': 'GBP' },
+            { 'Name': 'en-JM', 'DisplayName': 'Jamaica', 'CurrencySymbol': '$', 'CurrencyCode': 'JMD' },
+            { 'Name': 'en-MY', 'DisplayName': 'Malaysia', 'CurrencySymbol': 'RM', 'CurrencyCode': 'MYR' },
+            { 'Name': 'en-PH', 'DisplayName': 'Republic of the Philippines', 'CurrencySymbol': '₱', 'CurrencyCode': 'PHP' },
+            { 'Name': 'wo-SN', 'DisplayName': 'Senegal', 'CurrencySymbol': 'CFA', 'CurrencyCode': 'XOF' },
+            { 'Name': 'ka-GE', 'DisplayName': 'Georgia', 'CurrencySymbol': '₾', 'CurrencyCode': 'GEL' },
+            { 'Name': 'ha-Latn-NG', 'DisplayName': 'Nigeria', 'CurrencySymbol': '₦', 'CurrencyCode': 'NGN' },
+            { 'Name': 'he-IL', 'DisplayName': 'Israel', 'CurrencySymbol': '₪', 'CurrencyCode': 'ILS' },
+            { 'Name': 'hu-HU', 'DisplayName': 'Hungary', 'CurrencySymbol': 'Ft', 'CurrencyCode': 'HUF' },
+            { 'Name': 'is-IS', 'DisplayName': 'Iceland', 'CurrencySymbol': 'ISK', 'CurrencyCode': 'ISK' },
+            { 'Name': 'id-ID', 'DisplayName': 'Indonesia', 'CurrencySymbol': 'Rp', 'CurrencyCode': 'IDR' },
+            { 'Name': 'ja-JP', 'DisplayName': 'Japan', 'CurrencySymbol': '¥', 'CurrencyCode': 'JPY' },
+            { 'Name': 'kk-KZ', 'DisplayName': 'Kazakhstan', 'CurrencySymbol': '₸', 'CurrencyCode': 'KZT' },
+            { 'Name': 'km-KH', 'DisplayName': 'Cambodia', 'CurrencySymbol': '៛', 'CurrencyCode': 'KHR' },
+            { 'Name': 'rw-RW', 'DisplayName': 'Rwanda', 'CurrencySymbol': 'RF', 'CurrencyCode': 'RWF' },
+            { 'Name': 'sw-KE', 'DisplayName': 'Kenya', 'CurrencySymbol': 'Ksh', 'CurrencyCode': 'KES' },
+            { 'Name': 'ko-KR', 'DisplayName': 'Korea', 'CurrencySymbol': '₩', 'CurrencyCode': 'KRW' },
+            { 'Name': 'ko-KP', 'DisplayName': 'North Korea', 'CurrencySymbol': '₩', 'CurrencyCode': 'KPW' },
+            { 'Name': 'ky-KG', 'DisplayName': 'Kyrgyzstan', 'CurrencySymbol': 'сом', 'CurrencyCode': 'KGS' },
+            { 'Name': 'mk-MK', 'DisplayName': 'Republic of Macedonia', 'CurrencySymbol': 'ден', 'CurrencyCode': 'MKD' },
+            { 'Name': 'lo-LA', 'DisplayName': 'Lao P.D.R.', 'CurrencySymbol': '₭', 'CurrencyCode': 'LAK' },
+            { 'Name': 'mn-Mong-CN', 'DisplayName': 'PRC', 'CurrencySymbol': '¥', 'CurrencyCode': 'MNT' },
+            { 'Name': 'mgo-CM', 'DisplayName': 'Cameroon', 'CurrencySymbol': 'FCFA', 'CurrencyCode': 'XAF' },
+            { 'Name': 'ms-BN', 'DisplayName': 'Brunei Darussalam', 'CurrencySymbol': '$', 'CurrencyCode': 'BND' },
+            { 'Name': 'arn-CL', 'DisplayName': 'Chile', 'CurrencySymbol': '$', 'CurrencyCode': 'CLP' },
+            { 'Name': 'ne-NP', 'DisplayName': 'Nepal', 'CurrencySymbol': 'रु', 'CurrencyCode': 'NPR' },
+            { 'Name': 'nn-NO', 'DisplayName': 'Norway', 'CurrencySymbol': 'kr', 'CurrencyCode': 'NOK' },
+            { 'Name': 'sma-SE', 'DisplayName': 'Sweden', 'CurrencySymbol': 'kr', 'CurrencyCode': 'SEK' },
+            { 'Name': 'fa-IR', 'DisplayName': 'Iran', 'CurrencySymbol': 'ريال', 'CurrencyCode': 'IRR' },
+            { 'Name': 'pt-BR', 'DisplayName': 'Brazil', 'CurrencySymbol': 'R$', 'CurrencyCode': 'BRL' },
+            { 'Name': 'pl-PL', 'DisplayName': 'Poland', 'CurrencySymbol': 'zł', 'CurrencyCode': 'PLN' },
+            { 'Name': 'pa-Arab-PK', 'DisplayName': 'Islamic Republic of Pakistan', 'CurrencySymbol': 'Rs', 'CurrencyCode': 'PKR' },
+            { 'Name': 'quz-BO', 'DisplayName': 'Bolivia', 'CurrencySymbol': 'Bs.', 'CurrencyCode': 'BOB' },
+            { 'Name': 'quz-PE', 'DisplayName': 'Peru', 'CurrencySymbol': 'S/.', 'CurrencyCode': 'PEN' },
+            { 'Name': 'ro-RO', 'DisplayName': 'Romania', 'CurrencySymbol': 'RON', 'CurrencyCode': 'RON' },
+            { 'Name': 'tn-BW', 'DisplayName': 'Botswana', 'CurrencySymbol': 'P', 'CurrencyCode': 'BWP' },
+            { 'Name': 'si-LK', 'DisplayName': 'Sri Lanka', 'CurrencySymbol': 'රු.', 'CurrencyCode': 'LKR' },
+            { 'Name': 'es-AR', 'DisplayName': 'Argentina', 'CurrencySymbol': '$', 'CurrencyCode': 'ARS' },
+            { 'Name': 'es-VE', 'DisplayName': 'Venezuela', 'CurrencySymbol': 'Bs.', 'CurrencyCode': 'VEF' },
+            { 'Name': 'es-CO', 'DisplayName': 'Colombia', 'CurrencySymbol': '$', 'CurrencyCode': 'COP' },
+            { 'Name': 'es-CR', 'DisplayName': 'SCosta Rica', 'CurrencySymbol': '₡', 'CurrencyCode': 'CRC' },
+            { 'Name': 'es-DO', 'DisplayName': 'Dominican Republic', 'CurrencySymbol': '$', 'CurrencyCode': 'DOP' },
+            { 'Name': 'es-GT', 'DisplayName': 'Guatemala', 'CurrencySymbol': 'Q', 'CurrencyCode': 'GTQ' },
+            { 'Name': 'es-HN', 'DisplayName': 'Honduras', 'CurrencySymbol': 'L', 'CurrencyCode': 'HNL' },
+            { 'Name': 'es-MX', 'DisplayName': 'Mexico', 'CurrencySymbol': '$', 'CurrencyCode': 'MXN' },
+            { 'Name': 'es-NI', 'DisplayName': 'Nicaragua', 'CurrencySymbol': 'C$', 'CurrencyCode': 'NIO' },
+            { 'Name': 'es-PA', 'DisplayName': 'Panama', 'CurrencySymbol': 'B/.', 'CurrencyCode': 'PAB' },
+            { 'Name': 'es-PY', 'DisplayName': 'Paraguay', 'CurrencySymbol': '₲', 'CurrencyCode': 'PYG' },
+            { 'Name': 'es-UY', 'DisplayName': 'Uruguay', 'CurrencySymbol': '$', 'CurrencyCode': 'UYU' },
+            { 'Name': 'tg-Cyrl-TJ', 'DisplayName': 'Cyrillic, Tajikistan', 'CurrencySymbol': '???', 'CurrencyCode': 'TJS' },
+            { 'Name': 'th-TH', 'DisplayName': 'Thailand', 'CurrencySymbol': '?', 'CurrencyCode': 'THB' },
+            { 'Name': 'ti-ET', 'DisplayName': 'Ethiopia', 'CurrencySymbol': 'Br', 'CurrencyCode': 'ETB' },
+            { 'Name': 'ti-ER', 'DisplayName': 'Eritrea', 'CurrencySymbol': 'Nfk', 'CurrencyCode': 'ERN' },
+            { 'Name': 'tk-TM', 'DisplayName': 'Turkmenistan', 'CurrencySymbol': 'm.', 'CurrencyCode': 'TMT' },
+            { 'Name': 'tr-TR', 'DisplayName': 'Turkey', 'CurrencySymbol': '?', 'CurrencyCode': 'TRY' },
+            { 'Name': 'uk-UA', 'DisplayName': 'Ukraine', 'CurrencySymbol': '?', 'CurrencyCode': 'UAH' },
+            { 'Name': 'uz-Latn-UZ', 'DisplayName': 'Uzbekistan', 'CurrencySymbol': 'so?m', 'CurrencyCode': 'UZS' },
+            { 'Name': 'vi-VN', 'DisplayName': 'Vietnam', 'CurrencySymbol': '?', 'CurrencyCode': 'VND' },
+            { 'Name': 'yo-NG', 'DisplayName': 'Nigeria', 'CurrencySymbol': '?', 'CurrencyCode': 'NGN' }
         ];
     };
     return BasicWork;

@@ -8,7 +8,7 @@ var Flames = /** @class */ (function () {
     }
     Flames.prototype.WireEvet = function () {
         this.container.find('#submit').on('click', $.proxy(this.Submit, this));
-        this.container.find('#reset').on('click', $.proxy(this.Reset, this));
+        this.container.find('#reset').on('click', $.proxy(this.Reset, this, true));
     };
     Flames.prototype.Reset = function (onlyRender) {
         if (onlyRender === void 0) { onlyRender = false; }
@@ -17,7 +17,7 @@ var Flames = /** @class */ (function () {
             flames.empty();
             this.renderFlames();
         }
-        if (!onlyRender) {
+        if (onlyRender) {
             this.name.val('');
             this.target.val('');
         }
@@ -32,17 +32,20 @@ var Flames = /** @class */ (function () {
         });
     };
     Flames.prototype.Submit = function () {
+        var _this = this;
         var proceed = true;
         if (this.name.val() === "") {
             proceed = false;
             this.name.addClass('alert_border');
+            setTimeout(function () { BasicWork.removeAlert(_this.name); }, 500);
         }
         if (this.target.val() === "") {
             proceed = false;
             this.target.addClass('alert_border');
+            setTimeout(function () { BasicWork.removeAlert(_this.target); }, 500);
         }
         if (this.container.find("#flames_container").children().length < 6) {
-            this.Reset(false);
+            this.Reset();
         }
         if (proceed) {
             var flames = this.container.find("#flames_container");
@@ -71,8 +74,8 @@ var Flames = /** @class */ (function () {
         flames.children()[child - 1].remove();
     };
     Flames.prototype.WordsCount = function (first, second) {
-        var name = first.replace(/ +/g, '');
-        var target = second.replace(/ +/g, '');
+        var name = first.replace(/ +/g, '').toLowerCase();
+        var target = second.replace(/ +/g, '').toLowerCase();
         for (var i = 0; i < name.length; i++) {
             var index = target.indexOf(name[i]);
             if (index >= 0) {

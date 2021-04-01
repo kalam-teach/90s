@@ -11,7 +11,7 @@
     }
     public WireEvet(): void {
         this.container.find('#submit').on('click', $.proxy(this.Submit, this));
-        this.container.find('#reset').on('click', $.proxy(this.Reset, this));
+        this.container.find('#reset').on('click', $.proxy(this.Reset, this,true));
     }
     private Reset(onlyRender: boolean = false): void {
         let flames: JQuery = this.container.find("#flames_container");
@@ -19,7 +19,7 @@
             flames.empty()
             this.renderFlames();
         }
-        if (!onlyRender) {
+        if (onlyRender) {
             this.name.val('');
             this.target.val('');
         }
@@ -37,13 +37,15 @@
         if (this.name.val() === "") {
             proceed = false
             this.name.addClass('alert_border');
+            setTimeout(() => { BasicWork.removeAlert(this.name) }, 500)
         }
         if (this.target.val() === "") {
             proceed = false
             this.target.addClass('alert_border');
+            setTimeout(() => { BasicWork.removeAlert(this.target) }, 500)
         }
         if (this.container.find("#flames_container").children().length < 6) {
-            this.Reset(false);
+            this.Reset();
         }
         if (proceed) {
             let flames: JQuery = this.container.find("#flames_container");
@@ -75,8 +77,8 @@
     }
 
     private WordsCount(first: string, second: string): number {
-        let name = first.replace(/ +/g, '');
-        let target = second.replace(/ +/g, '');
+        let name = first.replace(/ +/g, '').toLowerCase();
+        let target = second.replace(/ +/g, '').toLowerCase();
         for (let i: number = 0; i < name.length; i++) {
             let index = target.indexOf(name[i])
             if (index >= 0) {

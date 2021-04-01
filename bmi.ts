@@ -34,10 +34,12 @@
         if (this.height.val() === "") {
             proceed = false
             this.height.addClass('alert_border');
+            setTimeout(() => { BasicWork.removeAlert(this.height) }, 500)
         }
         if (this.weight.val() === "") {
             proceed = false
             this.weight.addClass('alert_border');
+            setTimeout(() => { BasicWork.removeAlert(this.weight) }, 500)
         }
         if (this.container.find("#BMI_container").find('.text-incrementer').length > 1) {
             this.Reset();

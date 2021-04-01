@@ -25,9 +25,11 @@ body {
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    margin-bottom:30px;
+    border-bottom:2px solid darkblue;
 }
 
-    #headSwitch select,.holder select {
+    #headSwitch select,.holder select,#from,#to {
         height: 40px;
         background-image: linear-gradient(to right,pink,aqua);
         border-radius: 10px;
@@ -36,6 +38,11 @@ body {
 .holder select{ 
     margin-left:10px;
 }
+#workAreaCurrency div select{
+    width:70%;
+    margin:20px;
+}
+
 #workAreaFlames {
     display: block;
     border-radius: 30px;
@@ -79,15 +86,12 @@ body {
     background-size: cover;
 }
 
-#workAreaCurrency {
-    display: block;
-}
 
 .alert_border {
     border-color: red !important;
 }
 
-#flames_container,#BMI_container {
+#flames_container, #BMI_container, #currency_container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -105,8 +109,16 @@ body {
     height: 25px;
     width: 14%;
 }
-.text-incrementer{
-    width:40% !important;
+#currency_container p{
+    font-size: 70px;
+    margin: 0px 20px;
+    color: aliceblue;
+}
+#workAreaCurrency input {
+    color: aliceblue;
+}
+.text-incrementer {
+    width: 40% !important;
 }
 .button-group {
     justify-content: space-evenly;
@@ -148,7 +160,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-    #workAreaFlames {
+    #container {
         width: 70%;
         height:700px;
     }
